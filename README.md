@@ -1,19 +1,23 @@
-# Orbs Network State Reader
+# Template Typescript library
 
-An Orbs node service that reads the state of the Orbs network. 
+A library template project
 
-## How to run
+## what's inside
+ - code written in typescript
+ - testing done with [Tape](https://www.npmjs.com/package/tape)
+ - test files are inside the src library
+ - prettier and eslint 
+ - circleci setup for automatic testing
+ 
 
- [still missing implementation]
 
 ## Developer instructions
 
 ### Installing workspace
 
-to install a development environment, you need to have nvm and git installd.
+to install a development environment, you need to have node.js git installd.
 Then, `git clone` this repo locally and run:
 ```
-$ nvm use
 $ npm install
 $ npm test
 ```
@@ -25,7 +29,7 @@ This project is written with [VSCode](https://code.visualstudio.com/) in mind. s
 
 `npm run test`
 
-execute all internal tests.
+execute all tests.
 
 ### clean
 
@@ -37,12 +41,6 @@ Removes any built code and any built executables.
 
 `npm run build`
 
-Cleans, then builds the service and docker image.
+Cleans, then builds the library.
 
-Your built code will be in the `./dist/` directory, the docker image will be written to the local docker exporter.
-
-### End-to-end Testing
-
-`npm run test:e2e`
-
-runs end-to-end tests against a built docker image (notice this command does nbot builds a docker image).
+Your built code will be in the `./dist/` directory.

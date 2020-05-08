@@ -1,6 +1,7 @@
-import test from 'ava';
+import tape from 'tape';
 import { hello } from './index';
 
-test('happy flow', t => {
+tape('happy flow', (t) => {
+    t.plan(1);
     t.deepEqual(hello('world'), { message: 'hello world' });
 });

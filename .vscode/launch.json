@@ -7,12 +7,14 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "index.ts",
-            "skipFiles": ["<node_internals>/**"],
-            "args": ["${workspaceFolder}/src/index.ts"],
+            "name": "Test All",
             "runtimeArgs": ["-r", "ts-node/register/transpile-only"],
+            "program": "${workspaceFolder}/node_modules/tape/bin/tape",
+            "args": ["${workspaceFolder}/src/**/*.test.ts?(x)"],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
+            "console": "internalConsole",
+            "outputCapture": "std",
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
                 "TS_NODE_IGNORE": "false"
@@ -21,24 +23,18 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Test Current File",
+            "runtimeArgs": ["-r", "ts-node/register/transpile-only"],
+            "program": "${workspaceFolder}/node_modules/tape/bin/tape",
+            "args": ["${file}"],
             "cwd": "${workspaceRoot}",
-            "name": "Debug AVA test file",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
-            "runtimeArgs": ["debug", "--break", "${file}"],
-            "port": 9229,
+            "protocol": "inspector",
+            "console": "internalConsole",
             "outputCapture": "std",
-            "skipFiles": ["<node_internals>/**/*.js"]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "name": "Debug E2E AVA test file",
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
-            "runtimeArgs": ["--config", "./ava.config.e2e.js", "debug", "--break", "${file}"],
-            "port": 9229,
-            "outputCapture": "std",
-            "skipFiles": ["<node_internals>/**/*.js"]
+            "internalConsoleOptions": "openOnSessionStart",
+            "env": {
+                "TS_NODE_IGNORE": "false"
+            }
         }
     ]
 }
